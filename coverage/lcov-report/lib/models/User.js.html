@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">40.74% </span>
+        <span class="strong">77.78% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>11/27</span>
+        <span class='fraction'>21/27</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">66.67% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/6</span>
+        <span class='fraction'>4/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">75% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/4</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">40.74% </span>
+        <span class="strong">77.78% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>11/27</span>
+        <span class='fraction'>21/27</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -127,13 +127,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -141,28 +149,20 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -198,32 +198,32 @@ schema.virtual('password').set(function(password){
 });
 &nbsp;
 schema.statics.authenticate = async function({ username, email, password }) {
-  const name = await this.findOne(username);
-<span class="cstat-no" title="statement not covered" >  if(!name){</span>
+  const name = await this.findOne({ username });
+  if(!name){
+    const err = new Error('Invalid Username, Email or Password');
+    err.status = 401;
+    throw err;
+  }
+&nbsp;
+  const user = await this.findOne({ email });
+  <span class="missing-if-branch" title="if path not taken" >I</span>if(!user){
     const err = <span class="cstat-no" title="statement not covered" >new Error('Invalid Username, Email or Password');</span>
 <span class="cstat-no" title="statement not covered" >    err.status = 401;</span>
 <span class="cstat-no" title="statement not covered" >    throw err;</span>
   }
 &nbsp;
-  const user = <span class="cstat-no" title="statement not covered" >await this.findOne(email);</span>
-<span class="cstat-no" title="statement not covered" >  if(!user){</span>
+  const validPassword = bcrypt.compareSync(password, user.passwordHash);
+  <span class="missing-if-branch" title="if path not taken" >I</span>if(!validPassword){
     const err = <span class="cstat-no" title="statement not covered" >new Error('Invalid Username, Email or Password');</span>
 <span class="cstat-no" title="statement not covered" >    err.status = 401;</span>
 <span class="cstat-no" title="statement not covered" >    throw err;</span>
   }
 &nbsp;
-  const validPassword = <span class="cstat-no" title="statement not covered" >bcrypt.compareSync(password, user.passwordHash);</span>
-<span class="cstat-no" title="statement not covered" >  if(!validPassword){</span>
-    const err = <span class="cstat-no" title="statement not covered" >new Error('Invalid Username, Email or Password');</span>
-<span class="cstat-no" title="statement not covered" >    err.status = 401;</span>
-<span class="cstat-no" title="statement not covered" >    throw err;</span>
-  }
-&nbsp;
-<span class="cstat-no" title="statement not covered" >  return user;</span>
+  return user;
 };
 &nbsp;
-schema.methods.authToken = <span class="fstat-no" title="function not covered" >fu</span>nction(){
-<span class="cstat-no" title="statement not covered" >  return jwt.sign(this.toJSON(), process.env.TOKEN_SECRET, {</span>
+schema.methods.authToken = function(){
+  return jwt.sign(this.toJSON(), process.env.TOKEN_SECRET, {
     expiresIn: '30d'
   });
 };
@@ -235,7 +235,7 @@ module.exports = mongoose.model('User', schema);
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Dec 19 2019 14:57:52 GMT-0700 (Mountain Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Dec 19 2019 15:16:57 GMT-0700 (Mountain Standard Time)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>

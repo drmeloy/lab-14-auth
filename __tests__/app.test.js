@@ -19,14 +19,14 @@ describe('auth routes', () => {
     return mongoose.connection.close();
   });
 
-  const createUser = async() => {
-    return await User
-      .create({
-        username: 'drmeloy',
-        email: 'drmeloy@gmail.com',
-        password: 'hype'
-      });
-  };
+  let user;
+  beforeEach(async() => {
+    user = await User.create({
+      username: 'drmeloy',
+      email: 'drmeloy@gmail.com',
+      password: 'hype'
+    });
+  });
 
   it('creates a new user', () => {
     return request(app)
@@ -47,8 +47,6 @@ describe('auth routes', () => {
   });
 
   it('logs a user in', async() => {
-    const user = createUser();
-    
     return request(app)
       .post('/api/v1/auth/login')
       .send({
@@ -64,5 +62,21 @@ describe('auth routes', () => {
           __v: 0
         });
       });
+  });
+
+  it('fails to log in with bad username', () => {
+    return request(app)
+      .post('/api/v1/auth/login')
+      .send({
+        username: 'diddy kong',
+        email: 'drmeloy@gmail.com',
+        password: 'hype'
+      })
+      .then(res => {
+        expect(res.body).toEqual({
+          message: 'Invalid Username, Email or Password',
+          status: 401,
+        })
+      })
   });
 });
