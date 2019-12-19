@@ -19,6 +19,15 @@ describe('auth routes', () => {
     return mongoose.connection.close();
   });
 
+  const createUser = async() => {
+    return await User
+      .create({
+        username: 'drmeloy',
+        email: 'drmeloy@gmail.com',
+        password: 'hype'
+      });
+  };
+
   it('creates a new user', () => {
     return request(app)
       .post('/api/v1/auth/signup')
@@ -30,6 +39,26 @@ describe('auth routes', () => {
       .then(res => {
         expect(res.body).toEqual({
           _id: expect.any(String),
+          username: 'drmeloy',
+          email: 'drmeloy@gmail.com',
+          __v: 0
+        });
+      });
+  });
+
+  it('logs a user in', () => {
+    const user = createUser();
+    
+    return request(app)
+      .post('/api/v1/auth/login')
+      .send({
+        username: 'drmeloy',
+        email: 'drmeloy@gmail.com',
+        password: 'hype'
+      })
+      .then(res => {
+        expect(res.body).toEqual({
+          _id: user._id.toString(),
           username: 'drmeloy',
           email: 'drmeloy@gmail.com',
           __v: 0
