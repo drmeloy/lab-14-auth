@@ -79,4 +79,36 @@ describe('auth routes', () => {
         })
       })
   });
+
+  it('fails to log in with bad email', () => {
+    return request(app)
+      .post('/api/v1/auth/login')
+      .send({
+        username: 'drmeloy',
+        email: 'diddy_kong@gmail.com',
+        password: 'hype'
+      })
+      .then(res => {
+        expect(res.body).toEqual({
+          message: 'Invalid Username, Email or Password',
+          status: 401,
+        })
+      })
+  });
+
+  it('fails to log in with bad password', () => {
+    return request(app)
+      .post('/api/v1/auth/login')
+      .send({
+        username: 'drmeloy',
+        email: 'drmeloy@gmail.com',
+        password: 'hypeeee'
+      })
+      .then(res => {
+        expect(res.body).toEqual({
+          message: 'Invalid Username, Email or Password',
+          status: 401,
+        })
+      })
+  });
 });
