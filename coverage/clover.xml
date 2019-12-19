@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1576791681418" clover="3.2.0">
-  <project timestamp="1576791681419" name="All files">
-    <metrics statements="58" coveredstatements="36" conditionals="11" coveredconditionals="1" methods="12" coveredmethods="7" elements="81" coveredelements="44" complexity="0" loc="58" ncloc="58" packages="5" files="6" classes="6"/>
+<coverage generated="1576792672084" clover="3.2.0">
+  <project timestamp="1576792672084" name="All files">
+    <metrics statements="65" coveredstatements="43" conditionals="13" coveredconditionals="6" methods="14" coveredmethods="10" elements="92" coveredelements="59" complexity="0" loc="65" ncloc="65" packages="5" files="6" classes="6"/>
     <package name="lib">
       <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="app.js" path="C:\Users\Dan\Documents\alchemy\career-track\labs\lab-14-auth\lib\app.js">
@@ -16,17 +16,17 @@
       </file>
     </package>
     <package name="lib.middleware">
-      <metrics statements="12" coveredstatements="3" conditionals="6" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <metrics statements="12" coveredstatements="8" conditionals="6" coveredconditionals="5" methods="2" coveredmethods="1"/>
       <file name="error.js" path="C:\Users\Dan\Documents\alchemy\career-track\labs\lab-14-auth\lib\middleware\error.js">
-        <metrics statements="8" coveredstatements="2" conditionals="6" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="8" coveredstatements="7" conditionals="6" coveredconditionals="5" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
-        <line num="5" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="7" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="5" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="1" type="cond" truecount="3" falsecount="1"/>
         <line num="9" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
       </file>
       <file name="not-found.js" path="C:\Users\Dan\Documents\alchemy\career-track\labs\lab-14-auth\lib\middleware\not-found.js">
         <metrics statements="4" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -37,18 +37,18 @@
       </file>
     </package>
     <package name="lib.models">
-      <metrics statements="22" coveredstatements="10" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="2"/>
+      <metrics statements="27" coveredstatements="11" conditionals="6" coveredconditionals="0" methods="4" coveredmethods="3"/>
       <file name="User.js" path="C:\Users\Dan\Documents\alchemy\career-track\labs\lab-14-auth\lib\models\User.js">
-        <metrics statements="22" coveredstatements="10" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="2"/>
+        <metrics statements="27" coveredstatements="11" conditionals="6" coveredconditionals="0" methods="4" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
         <line num="26" count="1" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
         <line num="30" count="1" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
         <line num="32" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="33" count="0" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
@@ -59,20 +59,27 @@
         <line num="41" count="0" type="stmt"/>
         <line num="42" count="0" type="stmt"/>
         <line num="45" count="0" type="stmt"/>
-        <line num="48" count="1" type="stmt"/>
+        <line num="46" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
         <line num="49" count="0" type="stmt"/>
-        <line num="54" count="1" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="61" count="1" type="stmt"/>
       </file>
     </package>
     <package name="lib.routes">
-      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <metrics statements="7" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
       <file name="auth.js" path="C:\Users\Dan\Documents\alchemy\career-track\labs\lab-14-auth\lib\routes\auth.js">
-        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <metrics statements="7" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
       </file>
     </package>
     <package name="lib.utils">

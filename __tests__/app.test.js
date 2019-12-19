@@ -46,7 +46,7 @@ describe('auth routes', () => {
       });
   });
 
-  it('logs a user in', () => {
+  it('logs a user in', async() => {
     const user = createUser();
     
     return request(app)
